@@ -604,22 +604,75 @@ All entities are scoped by `organizationId`. A manufacturer can see:
 
 ## Roadmap
 
-- [x] 3D Cesium globe with shipment visualization
-- [x] Multi-affiliate organization hierarchy
-- [x] Alert management with severity routing
-- [x] Operational analytics dashboard
-- [x] REST API for all logistics entities
-- [ ] Real-time WebSocket updates (replace polling)
-- [ ] GPS device integration (ELD, telematics)
-- [ ] Route optimization engine
-- [ ] Geofencing with entry/exit alerts
-- [ ] ETA prediction using ML
-- [ ] Mobile app (React Native)
-- [ ] Carrier rate comparison
-- [ ] Document management (BOL, POD, invoices)
-- [ ] Integration with SAP, Oracle, Microsoft Dynamics
-- [ ] Multi-language support (i18n)
-- [ ] Dark mode / light mode
+### Phase 1 — Core Platform (Complete)
+- [x] 3D Cesium globe with real-time shipment visualization
+- [x] Multi-affiliate organization hierarchy (manufacturer + affiliates)
+- [x] Alert management with severity routing and acknowledgement
+- [x] Operational analytics dashboard (KPIs, charts, carrier performance)
+- [x] REST API for all logistics entities (shipments, carriers, warehouses, alerts)
+- [x] PostgreSQL + Prisma schema with 10 models, 10 enums, full relations
+- [x] Collapsible sidebar with status filtering, layer toggles, visual modes
+- [x] Shipment detail panel with route, timeline, cargo, and references
+- [x] Cesium entity rendering (truck billboards, warehouse pins, route polylines)
+- [x] Location search with Nominatim geocoding fallback
+- [x] Seed script with 50 realistic shipments across 10 US logistics hubs
+- [x] Docker Compose for PostgreSQL + production-ready app deployment
+- [x] Dark theme throughout (inherited from HORUS base)
+
+### Phase 2 — Real-Time & Live Data (Q3 2026)
+- [ ] WebSocket/SSE streaming (replace 15s/30s polling)
+- [ ] GPS/ELD device integration (Samsara, Geotab, KeepTruckin APIs)
+- [ ] Live vehicle position pings on globe with speed/heading indicators
+- [ ] Geofencing engine — automated entry/exit alerts for warehouses, ports, yards
+- [ ] SMS/email/push notification routing for unacknowledged CRITICAL/HIGH alerts
+- [ ] Simulated GPS drift for demo/training mode
+- [ ] Historical playback mode (replay shipments along route with timeline scrubber)
+
+### Phase 3 — Intelligence & Optimization (Q4 2026)
+- [ ] ML-powered ETA prediction (historical transit time + weather + traffic features)
+- [ ] Route optimization engine (multi-stop TSP with time windows)
+- [ ] Dynamic re-routing on alert trigger (auto-suggest alternative carriers/routes)
+- [ ] Anomaly detection — flag unusual dwell times, route deviations, late pickups
+- [ ] Carrier scorecard: on-time %, damage rate, cost-per-mile, compliance rating
+- [ ] Capacity forecasting — predict warehouse slot and carrier availability
+- [ ] What-if simulation — model disruption impacts (port strike, weather, carrier failure)
+
+### Phase 4 — Multi-Modal & Extended Tracking (Q1 2027)
+- [ ] Ocean container tracking (API integration with Project44/FourKites)
+- [ ] Air freight tracking (IATA Cargo-XML integration)
+- [ ] Rail shipment visibility (railroad EDI 404/419 integration)
+- [ ] Intermodal journey view — single shipment spanning truck → rail → ocean
+- [ ] Cross-border/customs status tracking (ACE/ACI integration)
+- [ ] Driver hours-of-service (HOS) compliance dashboard
+- [ ] Temperature and humidity monitoring for cold chain (IoT sensor overlay)
+
+### Phase 5 — Integration & Ecosystem (Q2 2027)
+- [ ] ERP integration adapters: SAP S/4HANA, Oracle JD Edwards, Microsoft Dynamics 365
+- [ ] EDI 204/210/214/990 support for carrier load tendering and status
+- [ ] CSV/Excel bulk upload with column mapping wizard
+- [ ] Public REST API with API keys, rate limiting, and developer portal
+- [ ] Webhook system — notify external systems on shipment status changes
+- [ ] SSO/SAML authentication for enterprise customers
+- [ ] Role-based access control (RBAC) with per-affiliate data isolation
+
+### Phase 6 — Mobile & Edge (Q3 2027)
+- [ ] React Native driver mobile app — GPS broadcast, HOS logging, proof-of-delivery
+- [ ] Customer-facing tracking portal — share link with real-time ETA
+- [ ] Barcode/RFID scanning for yard check-in/check-out
+- [ ] Offline-first mode for warehouse yard operations
+- [ ] Push notifications for alert escalation
+- [ ] Dark mode / light mode toggle
+
+### Future (Long-Term)
+- [ ] Automated freight audit and pay (match rate-con-bill-payment)
+- [ ] Carrier rate comparison marketplace
+- [ ] Carbon emissions tracking per shipment (EPA SmartWay models)
+- [ ] Digital twin — full facility and yard layout in 3D
+- [ ] Document management (BOL, POD, invoices) with OCR extraction
+- [ ] Multi-language support (i18n) — Spanish, Mandarin, German, Portuguese
+- [ ] Fleet maintenance scheduler (integrate with telematics for predictive maintenance)
+- [ ] Public status page for customers (real-time shipment tracking without login)
+- [ ] Community plugin system for custom data sources and visualizations
 
 ---
 
